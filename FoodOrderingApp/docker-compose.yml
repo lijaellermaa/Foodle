@@ -1,0 +1,31 @@
+﻿services:
+  app:
+    build:
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      ConnectionStrings:DefaultConnection: "Host=dist-22-23s-db;Port=5432;Database=food-ordering-app;Username=postgres;Password=postgres"
+    networks:
+      - app-network
+    ports:
+      - 8080:8080
+
+  dist-22-23s-db:
+    container_name: dist-22-23s-db
+    image: "postgres:latest"
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "6000:5432"
+    volumes:
+      - dist-22-23s-db-postgres-volume:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+volumes:
+  dist-22-23s-db-postgres-volume:
+
+networks:
+  app-network:

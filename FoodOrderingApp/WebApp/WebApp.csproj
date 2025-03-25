@@ -1,0 +1,186 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <UserSecretsId>aspnet-WebApp-DA488564-80A8-4A3E-8329-7794C52F0294</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0" />
+        <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+        <PackageReference Include="AutoMapper" Version="13.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.5" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.5" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.5" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.5">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\App.BLL\App.BLL.csproj" />
+      <ProjectReference Include="..\App.DAL.EF\App.DAL.EF.csproj" />
+      <ProjectReference Include="..\Helpers.Base\Helpers.Base.csproj" />
+      <ProjectReference Include="..\Public.DTO\Public.DTO.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\_ViewStart.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Deliveries\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Deliveries\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Deliveries\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Deliveries\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Deliveries\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Discounts\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Discounts\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Discounts\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Discounts\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Discounts\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Locations\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Locations\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Locations\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Locations\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Locations\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\OrderItems\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\OrderItems\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\OrderItems\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\OrderItems\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\OrderItems\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Orders\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Orders\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Orders\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Orders\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Orders\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\PaymentMethods\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\PaymentMethods\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\PaymentMethods\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\PaymentMethods\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\PaymentMethods\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Prices\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Prices\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Prices\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Prices\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Prices\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Products\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Products\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Products\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Products\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Products\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProductTypes\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProductTypes\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProductTypes\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProductTypes\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProductTypes\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Restaurants\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Restaurants\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Restaurants\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Restaurants\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Restaurants\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Deliveries\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Deliveries\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Deliveries\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Deliveries\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Deliveries\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\PaymentMethods\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\PaymentMethods\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\PaymentMethods\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\PaymentMethods\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\PaymentMethods\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Locations\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Locations\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Locations\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Locations\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Locations\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\OrderItems\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\OrderItems\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\OrderItems\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\OrderItems\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\OrderItems\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Orders\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Orders\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Orders\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Orders\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Orders\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Prices\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Prices\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Prices\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Prices\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Prices\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Products\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Products\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Products\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Products\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Products\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\ProductTypes\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\ProductTypes\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\ProductTypes\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\ProductTypes\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\ProductTypes\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Restaurants\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Restaurants\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Restaurants\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Restaurants\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Restaurants\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\AccessDenied.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ConfirmEmail.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ExternalLogin.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ForgotPassword.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ForgotPasswordConfirmation.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Lockout.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Login.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\LoginWith2fa.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\LoginWithRecoveryCode.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Logout.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\Disable2fa.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\DownloadPersonalData.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\Email.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\EnableAuthenticator.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\GenerateRecoveryCodes.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\PersonalData.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\ResetAuthenticator.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\SetPassword.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\ShowRecoveryCodes.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\TwoFactorAuthentication.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\_Layout.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\_StatusMessage.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Register.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\RegisterConfirmation.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ResendEmailConfirmation.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ResetPassword.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ResetPasswordConfirmation.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\_StatusMessage.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\_ViewImports.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Areas\Admin\Controllers\" />
+      <Folder Include="Areas\Admin\ViewModels\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Areas\Admin\Views\Deliveries\Create.cshtml" />
+      <UpToDateCheckInput Remove="Areas\Admin\Views\Deliveries\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Areas\Admin\Views\Deliveries\Details.cshtml" />
+      <UpToDateCheckInput Remove="Areas\Admin\Views\Deliveries\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Areas\Admin\Views\Deliveries\Index.cshtml" />
+    </ItemGroup>
+
+</Project>

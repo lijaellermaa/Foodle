@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\App.BLL.DTO\App.BLL.DTO.csproj" />
+      <ProjectReference Include="..\Base.DAL\Base.DAL.csproj" />
+      <ProjectReference Include="..\Base.Domain\Base.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="13.0.1" />
+    </ItemGroup>
+
+</Project>
