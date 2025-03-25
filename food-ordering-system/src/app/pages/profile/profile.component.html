@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="details">
+
+    <app-title title="Manage your account"></app-title>
+
+    <form (ngSubmit)="submit()" [formGroup]="profileForm">
+
+      <text-input [control]="fc['firstname']" [showErrorsWhen]="isSubmitted" label="Firstname">
+      </text-input>
+
+      <text-input [control]="fc['lastname']" [showErrorsWhen]="isSubmitted" label="Lastname">
+      </text-input>
+
+      <text-input [control]="fc['address']" [showErrorsWhen]="isSubmitted" label="Address">
+      </text-input>
+
+      <button class="btn btn-accent">Update</button>
+    </form>
+  </div>
+</div>

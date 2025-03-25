@@ -1,0 +1,32 @@
+<div>
+  <h2 class="font-bold text-balance">Order Items</h2>
+
+  <div class="flex flex-col">
+    <div *ngFor="let item of items" class="flex flex-row card card-compact card-bordered mt-2">
+      <figure>
+        <img alt="productImage" src="assets/{{item.product.imageUrl}}" title="image"/>
+      </figure>
+
+      <div class="card-body flex flex-row justify-between items-center">
+        <div class="card-title grow">
+          {{ item.product.name }}
+        </div>
+
+        <span class="text-gray-500">
+          {{ (item.product.latestPrice?.value) ?? 0 | currency }}&#20;x&#20;{{ item.quantity }}
+        </span>
+
+        <span class="pl-2 font-semibold">
+          {{ (((item.product.latestPrice?.value) ?? 0) * item.quantity) | currency }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-end p-2">
+    <span>Total:&#20;</span>
+    <span class="font-bold">
+        {{ getTotalPrice() | currency }}
+      </span>
+  </div>
+</div>

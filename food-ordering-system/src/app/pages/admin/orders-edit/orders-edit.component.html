@@ -1,0 +1,79 @@
+<h1 class="text-3xl font-bold m-4">Orders</h1>
+
+<form [formGroup]="formGroup" class="ml-4">
+  <label class="form-control w-full max-w-xs">
+    <div class="label"><span class="label-text">Deliver To</span></div>
+    <input class="input input-bordered w-full max-w-xs" type="text" placeholder="Deliver To"
+           [formControl]="formGroup.controls.deliverTo">
+  </label>
+  <label class="form-control w-full max-w-xs">
+    <div class="label"><span class="label-text">User Id</span></div>
+    <input class="input input-bordered w-full max-w-xs" type="text" placeholder="User Id"
+           [formControl]="formGroup.controls.appUserId">
+  </label>
+
+  <label class="form-control w-full max-w-xs flex">
+    <div class="label">
+      <span class="label-text">Payment Method</span>
+    </div>
+    <select class="select select-bordered" [formControl]="formGroup.controls.paymentMethod">
+      <option disabled [selected]="!id">Select Payment Method</option>
+      @for (paymentMethod of PaymentMethod | keyvalue; track paymentMethod.key) {
+        @if (getPaymentMethodLabel(paymentMethod.value)) {
+          <option value="{{paymentMethod.value}}"
+                  [selected]="formGroup.value.paymentMethod?.valueOf() == paymentMethod.value">{{ getPaymentMethodLabel(paymentMethod.value) }}
+          </option>
+        }
+      }
+    </select>
+  </label>
+
+  <label class="form-control w-full max-w-xs flex">
+    <div class="label">
+      <span class="label-text">Delivery Type</span>
+    </div>
+    <select class="select select-bordered" [formControl]="formGroup.controls.deliveryType">
+      <option disabled [selected]="!id">Select Delivery Type</option>
+      @for (deliveryType of DeliveryType | keyvalue; track deliveryType.key) {
+        @if (getDeliveryTypeLabel(deliveryType.value)) {
+          <option value="{{deliveryType.value}}"
+                  [selected]="formGroup.value.deliveryType?.valueOf() == deliveryType.value">{{ getDeliveryTypeLabel(deliveryType.value) }}
+          </option>
+        }
+      }
+    </select>
+  </label>
+
+  <label class="form-control w-full max-w-xs flex">
+    <div class="label">
+      <span class="label-text">Order Status</span>
+    </div>
+    <select class="select select-bordered" [formControl]="formGroup.controls.orderStatus">
+      <option disabled [selected]="!id">Select Order Status</option>
+      @for (orderStatus of OrderStatus | keyvalue; track orderStatus.key) {
+        @if (getOrderStatusLabel(orderStatus.value)) {
+          <option value="{{orderStatus.value}}"
+                  [selected]="formGroup.value.orderStatus?.valueOf() == orderStatus.value">{{ getOrderStatusLabel(orderStatus.value) }}
+          </option>
+        }
+      }
+    </select>
+  </label>
+
+  <label class="form-control w-full max-w-xs flex">
+    <div class="label">
+      <span class="label-text">Restaurants</span>
+    </div>
+    <select class="select select-bordered" [formControl]="formGroup.controls.restaurantId">
+      <option disabled [selected]="!id">Select Restaurant</option>
+      @for (restaurant of restaurants; track restaurant.id) {
+        <option value="{{restaurant.id}}"
+                [selected]="restaurant.id == formGroup.value.restaurantId">{{ restaurant.name }}
+        </option>
+      }
+    </select>
+  </label>
+
+  <button class="btn btn-accent mt-4" type="submit" (click)="postOrUpdate()">{{ this.id ? "Update" : "Create" }}
+  </button>
+</form>

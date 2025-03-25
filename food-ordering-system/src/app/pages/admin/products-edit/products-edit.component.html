@@ -1,0 +1,55 @@
+<h1 class="text-3xl font-bold m-4">Orders</h1>
+
+<form [formGroup]="formGroup" class="ml-4">
+  <label class="form-control w-full max-w-xs">
+    <div class="label"><span class="label-text">Name</span></div>
+    <input class="input input-bordered w-full max-w-xs" type="text" placeholder="Name"
+           [formControl]="formGroup.controls.name">
+  </label>
+  <label class="form-control w-full max-w-xs">
+    <div class="label"><span class="label-text">Size</span></div>
+    <input class="input input-bordered w-full max-w-xs" type="text" placeholder="Size"
+           [formControl]="formGroup.controls.size">
+  </label>
+  <label class="form-control w-full max-w-xs">
+    <div class="label"><span class="label-text">Description</span></div>
+    <input class="input input-bordered w-full max-w-xs" type="text" placeholder="Description"
+           [formControl]="formGroup.controls.description">
+  </label>
+  <label class="form-control w-full max-w-xs">
+    <div class="label"><span class="label-text">Image Url</span></div>
+    <input class="input input-bordered w-full max-w-xs" type="text" placeholder="Image Url"
+           [formControl]="formGroup.controls.imageUrl">
+  </label>
+
+  <label class="form-control w-full max-w-xs flex">
+    <div class="label">
+      <span class="label-text">Restaurant</span>
+    </div>
+    <select class="select select-bordered" [formControl]="formGroup.controls.restaurantId">
+      <option disabled [selected]="!id">Select Restaurant</option>
+      @for (restaurant of restaurants; track restaurant.id) {
+        <option value="{{restaurant.id}}"
+                [selected]="restaurant.id == formGroup.value.restaurantId">{{ restaurant.name }}
+        </option>
+      }
+    </select>
+  </label>
+
+  <label class="form-control w-full max-w-xs flex">
+    <div class="label">
+      <span class="label-text">Product Type</span>
+    </div>
+    <select class="select select-bordered" [formControl]="formGroup.controls.productTypeId">
+      <option disabled [selected]="!id">Select Product Type</option>
+      @for (productType of productTypes; track productType.id) {
+        <option value="{{productType.id}}"
+                [selected]="productType.id == formGroup.value.productTypeId">{{ productType.name }}
+        </option>
+      }
+    </select>
+  </label>
+
+  <button class="btn btn-accent mt-4" type="submit" (click)="postOrUpdate()">{{ this.id ? "Update" : "Create" }}
+  </button>
+</form>

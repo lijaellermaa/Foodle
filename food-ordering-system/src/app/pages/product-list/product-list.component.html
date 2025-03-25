@@ -1,0 +1,35 @@
+<div *ngIf="!dataLoaded; else list" class="flex h-screen">
+  <div class="m-auto">
+    <span class="loading loading-spinner loading-lg"></span>
+  </div>
+</div>
+
+<ng-template #list>
+  <div class="flex flex-wrap flex-shrink">
+    <a *ngFor="let product of products" class="p-2">
+      <div class="card card-compact w-64 bg-base-100 shadow-xl">
+        <figure>
+          <img alt="{{product.name}}" ngSrc="{{'assets/'+ product.imageUrl}}" width="380" height="240"/>
+        </figure>
+
+        <div class="card-body">
+          <div class="card-title">
+            <h2>{{ product.name }}</h2>
+            <div *ngIf="product.latestPrice?.previousValue" class="badge badge-secondary">SALE</div>
+          </div>
+          <p>
+            {{ product.description }}
+          </p>
+          <p *ngIf="product.latestPrice">{{ product.latestPrice.value | currency:"EUR":"symbol" }}</p>
+          <p *ngIf="!product.latestPrice">Not Available</p>
+          <div class="card-actions justify-end">
+            <button *ngIf="product.latestPrice" class="btn btn-accent" routerLink="/products/{{product.id}}">Add to
+              cart
+            </button>
+            <button *ngIf="!product.latestPrice" class="btn btn-disabled">Not Available</button>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</ng-template>

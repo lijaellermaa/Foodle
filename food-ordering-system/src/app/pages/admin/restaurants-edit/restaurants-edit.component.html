@@ -1,0 +1,45 @@
+<h1 class="text-3xl font-bold m-4">Restaurants</h1>
+
+<form [formGroup]="formGroup" class="ml-4">
+  <label class="form-control w-full max-w-xs">
+    <div class="label"><span class="label-text">Name</span></div>
+    <input class="input input-bordered w-full max-w-xs" type="text" placeholder="Name"
+           [formControl]="formGroup.controls.name">
+  </label>
+  <label class="form-control w-full max-w-xs">
+    <div class="label"><span class="label-text">Phone Number</span></div>
+    <input class="input input-bordered w-full max-w-xs" type="text" placeholder="Phone Number"
+           [formControl]="formGroup.controls.phoneNumber">
+  </label>
+  <label class="form-control w-full max-w-xs">
+    <div class="label"><span class="label-text">Open Time</span></div>
+    <input class="input input-bordered w-full max-w-xs" type="text" placeholder="Open Time"
+           [formControl]="formGroup.controls.openTime">
+  </label>
+  <label class="form-control w-full max-w-xs">
+    <div class="label"><span class="label-text">Close Time</span></div>
+    <input class="input input-bordered w-full max-w-xs" type="text" placeholder="Close Time"
+           [formControl]="formGroup.controls.closeTime">
+  </label>
+  <label class="form-control w-full max-w-xs">
+    <div class="label"><span class="label-text">Image Url</span></div>
+    <input class="input input-bordered w-full max-w-xs" type="text" placeholder="Image Url"
+           [formControl]="formGroup.controls.imageUrl">
+  </label>
+
+  <label class="form-control w-full max-w-xs flex">
+    <div class="label">
+      <span class="label-text">Location</span>
+    </div>
+    <select class="select select-bordered" [formControl]="formGroup.controls.locationId">
+      <option disabled [selected]="!id">Select Location</option>
+      @for (location of locations; track location.id) {
+        <option value="{{location.id}}" [selected]="location.id == formGroup.value.locationId">{{ location.address }}
+        </option>
+      }
+    </select>
+  </label>
+
+  <button class="btn btn-accent mt-4" type="submit" (click)="postOrUpdate()">{{ this.id ? "Update" : "Create" }}
+  </button>
+</form>

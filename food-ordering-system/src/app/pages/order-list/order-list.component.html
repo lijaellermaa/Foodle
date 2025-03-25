@@ -1,0 +1,59 @@
+<h1 class="text-3xl font-bold m-4">Order List</h1>
+
+<div class="flex flex-col justify-begin px-5">
+  @for (order of orderList; track order.id) {
+    <div class="card card-compact card-bordered mt-2">
+      <div class="card-body flex flex-row align-middle items-center justify-between">
+        <div class="card-title">
+          <span>{{ order.id }}</span>
+        </div>
+
+        <div>
+          @switch (order.status) {
+            @case (OrderStatus.Archived) {
+              <span>Archived</span>
+            }
+            @case (OrderStatus.Completed) {
+              <span>Completed</span>
+            }
+            @case (OrderStatus.Created) {
+              <span>Created</span>
+            }
+            @case (OrderStatus.InDelivery) {
+              <span>In Delivery</span>
+            }
+          }
+        </div>
+
+        <div class="flex flex-col">
+          <span>Delivery To:
+            @switch (order.deliveryType) {
+              @case (DeliveryType.Delivery) {
+                <span>{{ order.deliverTo }}</span>
+              }
+              @case (DeliveryType.Pickup) {
+                <span>Pickup</span>
+              }
+            }
+          </span>
+          <span>Payment:
+            @switch (order.paymentMethod) {
+              @case (PaymentMethod.Cash) {
+                <span>Cash</span>
+              }
+              @case (PaymentMethod.CreditCard) {
+                <span>Credit Card</span>
+              }
+            }
+          </span>
+          <span>
+          </span>
+        </div>
+
+        <div>
+          <span>{{ order.totalPrice | currency: "EUR" : "symbol" }}</span>
+        </div>
+      </div>
+    </div>
+  }
+</div>

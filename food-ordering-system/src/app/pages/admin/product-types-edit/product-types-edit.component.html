@@ -1,0 +1,12 @@
+<h1 class="text-3xl font-bold m-4">Product Types</h1>
+
+<form [formGroup]="formGroup" class="ml-4">
+  <label class="form-control w-full max-w-xs">
+    <div class="label"><span class="label-text">Name</span></div>
+    <input class="input input-bordered w-full max-w-xs" type="text" placeholder="Name"
+           [formControl]="formGroup.controls.name">
+  </label>
+
+  <button class="btn btn-accent mt-4" type="submit" (click)="postOrUpdate()">{{ this.id ? "Update" : "Create" }}
+  </button>
+</form>

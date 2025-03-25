@@ -1,0 +1,42 @@
+<header>
+  <div class="navbar bg-base-100 border-b-2 border-accent">
+    <div class="flex-1">
+      <a class="btn btn-ghost text-xl" routerLink="/">Foodle</a>
+    </div>
+
+    <nav class="flex-none">
+      <ul class="menu menu-horizontal px-1">
+        <li>
+          <a routerLink="/cart">
+            <div class="indicator">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+              <span class="badge badge-sm indicator-item" *ngIf="!cartIsEmpty()">{{ cartsSize() }}</span>
+            </div>
+          </a>
+        </li>
+
+        <li *ngIf="!isAuthenticated()"><a routerLink="/login">Login</a></li>
+
+        <li *ngIf="isAuthenticated()">
+          <details>
+            <summary>
+              <a routerLink="/profile">{{ user?.firstName }} {{ user?.lastName }}</a>
+            </summary>
+
+            <ul class="p-2 bg-base-100 rounded-t-none">
+              <li><a *ngIf="isAuthenticated()" routerLink="/admin">Admin</a></li>
+              <li><a routerLink="/profile">Profile</a></li>
+              <li><a routerLink="/orders">Orders</a></li>
+              <li><a (click)="logout()">Logout</a></li>
+            </ul>
+
+          </details>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,52 @@
+<h1 class="text-3xl font-bold m-4">Order Items</h1>
+
+<form [formGroup]="formGroup" class="ml-4">
+  <label class="form-control w-full max-w-xs">
+    <div class="label"><span class="label-text">Quantity</span></div>
+    <input class="input input-bordered w-full max-w-xs" type="number" placeholder="Quantity"
+           [formControl]="formGroup.controls.quantity">
+  </label>
+
+  <label class="form-control w-full max-w-xs flex">
+    <div class="label">
+      <span class="label-text">Product</span>
+    </div>
+    <select class="select select-bordered" [formControl]="formGroup.controls.productId">
+      <option disabled [selected]="!id">Select Product</option>
+      @for (product of products; track product.id) {
+        <option value="{{product.id}}"
+                [selected]="product.id == formGroup.value.productId">{{ product.restaurant.name }} - {{ product.name }}
+        </option>
+      }
+    </select>
+  </label>
+
+  <label class="form-control w-full max-w-xs flex">
+    <div class="label">
+      <span class="label-text">Price</span>
+    </div>
+    <select class="select select-bordered" [formControl]="formGroup.controls.priceId">
+      <option disabled [selected]="!id">Select Price</option>
+      @for (price of prices; track price.id) {
+        <option value="{{price.id}}" [selected]="price.id == formGroup.value.priceId">{{ price.value }}
+          - {{ price.product?.name }}
+        </option>
+      }
+    </select>
+  </label>
+
+  <label class="form-control w-full max-w-xs flex">
+    <div class="label">
+      <span class="label-text">Order</span>
+    </div>
+    <select class="select select-bordered" [formControl]="formGroup.controls.orderId">
+      <option disabled [selected]="!id">Select Order</option>
+      @for (order of orders; track order.id) {
+        <option value="{{order.id}}" [selected]="order.id == formGroup.value.orderId">{{ order.id }}</option>
+      }
+    </select>
+  </label>
+
+  <button class="btn btn-accent mt-4" type="submit" (click)="postOrUpdate()">{{ this.id ? "Update" : "Create" }}
+  </button>
+</form>

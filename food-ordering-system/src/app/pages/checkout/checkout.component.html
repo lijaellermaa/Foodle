@@ -1,0 +1,23 @@
+<div class="w-screen flex flex-row justify-center">
+  <div class="flex justify-center align-middle w-3/4 pt-4">
+    <div class="w-full flex flex-col">
+      <h2 class="text-2xl font-bold">Order Form</h2>
+      <div class="label">
+        <div class="label-text">Name</div>
+      </div>
+
+      <p class="input input-ghost w-full max-w-xs">{{ name }}</p>
+
+      <div class="label">
+        <div class="label-text">Address</div>
+      </div>
+
+      <p class="input input-ghost w-full max-w-xs">{{ address }}</p>
+
+      <order-items-list [items]="cartItems"></order-items-list>
+
+      <button class="btn btn-accent mt-4" (click)="createOrder()">Go To Payment</button>
+    </div>
+
+  </div>
+</div>

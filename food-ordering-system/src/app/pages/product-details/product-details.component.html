@@ -1,0 +1,52 @@
+<div *ngIf="product" class="p-5 flex flex-row justify-center w-screen">
+  <div class="card card-side bg-base-100 shadow-xl">
+    <figure class="flex-shrink">
+      <img class="w-96" alt="{{product.name}}" src="{{'assets/' + product.imageUrl}}"/>
+    </figure>
+    <div class="card-body flex flex-col">
+      <h2 class="flex-none card-title">
+        {{ product.name }}
+      </h2>
+
+      <div class="grow flex flex-col justify-start">
+        <p class="flex-none">{{ product.description }}</p>
+        <div class="grow flex justify-between pt-2">
+          <span *ngIf="product.latestPrice"
+                class="font-bold text-gray-600">{{ product.latestPrice.value | currency:"EUR":"symbol" }}</span>
+          <span class="font-bold text-gray-600">{{ product.size }}</span>
+        </div>
+      </div>
+
+      <div class="card-actions items-center flex flex-row justify-between">
+        <div class="flex flex-row items-center">
+          <button class="flex-none btn btn-circle btn-outline btn-sm" [class.btn-disabled]="quantity < 1"
+                  (click)="removeQuantity(1)">
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                 stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14"/>
+            </svg>
+          </button>
+
+          <div class="p-2 grow flex items-center">
+            <span class="box-content">{{ quantity }}</span>
+          </div>
+
+          <button class="flex-none btn btn-circle btn-outline btn-sm" (click)="addQuantity(1)">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                 stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="flex flex-row justify-between items-center">
+          <span class="pr-2">{{ totalPrice | currency: "EUR": "symbol" }}</span>
+          <button *ngIf="product.latestPrice" class="btn btn-accent" [class.btn-disabled]="quantity < 1"
+                  (click)="addItemToCart()">Add To Cart
+          </button>
+          <button *ngIf="!product.latestPrice" class="btn btn-disabled">Not Available</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

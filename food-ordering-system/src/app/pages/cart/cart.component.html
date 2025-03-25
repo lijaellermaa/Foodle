@@ -1,0 +1,88 @@
+<h1 class="text-3xl font-bold m-4">Cart Page</h1>
+
+<div class="flex flex-col justify-center px-5">
+  @if (isEmpty()) {
+    <app-not-found
+      [visible]="isEmpty()"
+      notFoundMessage="Cart Page Is Empty!"
+      resetLinkText="Go To Homepage"
+    ></app-not-found>
+  } @else {
+    <div class="flex flex-col">
+      <div class="flex flex-col pt-2">
+        @for (cart of getCarts() | keyvalue; track cart.key) {
+          <div class="flex flex-col">
+            <div>
+              <span>{{ cart.value.name }}</span>
+            </div>
+
+            @for (cartItem of cart.value.items | keyvalue; track cartItem.key) {
+              <div class="flex flex-row justify-start items-center card card-compact card-bordered mt-2">
+                <figure class="">
+                  <img
+                    class="w-56"
+                    alt="{{ cartItem.value.product.name }}"
+                    src="{{ 'assets/' + cartItem.value.product.imageUrl }}"/>
+                </figure>
+
+                <div class="flex flex-col justify-between">
+                  <div class="card-body flex flex-row align-middle items-center">
+                    <a class="card-title" routerLink="/product-details/{{ cartItem.key }}">
+                      {{ cartItem.value.product.name }}
+                    </a>
+                    <div>
+                      <button (click)="removeCartById(cart.key)">
+                        X
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="card-actions flex flex-row items-center justify-between min-w-full p-4">
+                    <div class="flex flex-row items-center grow">
+                      <button class="flex-none btn btn-circle btn-outline btn-sm"
+                              [class.btn-disabled]="cartItem.value.quantity < 1"
+                              (click)="removeItemById(cart.key, cart.value.name, cartItem.key, 1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14"/>
+                        </svg>
+                      </button>
+
+                      <div class="p-2 grow flex items-center">
+                        <span class="box-content">{{ cartItem.value.quantity }}</span>
+                      </div>
+
+                      <button class="flex-none btn btn-circle btn-outline btn-sm"
+                              (click)="addItemToCart(cartItem.value.product, 1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                             stroke="currentColor" class="size-6">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+                        </svg>
+                      </button>
+                    </div>
+                    @if (cartItem.value.product.latestPrice) {
+                      <span
+                        class="text-gray-500">{{ cartItem.value.product.latestPrice.value | currency : "EUR" : "symbol" }}</span>
+                      <span
+                        class="pl-2 font-semibold">{{ (cartItem.value.product.latestPrice.value * cartItem.value.quantity) | currency : "EUR" : "symbol" }}</span>
+                    } @else {
+                      <span>Out of stock</span>
+                    }
+                  </div>
+                </div>
+              </div>
+            }
+
+            <div class="flex flex-row items-center justify-end pt-4">
+              <div>
+                <span class="pr-2">{{ totalPriceById(cart.key) | currency : "EUR" : "symbol" }}</span>
+              </div>
+              <button class="btn btn-accent" [routerLink]="['/checkout', cart.key]">Proceed to Checkout</button>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

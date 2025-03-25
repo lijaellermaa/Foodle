@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.meal {
+  /* Sizing */
+  width: 100vw;
+  height: 100vh;
+
+  /* Flexbox stuff */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Text styles */
+  text-align: center;
+  color: white;
+
+  /* Background styles */
+  background-image: url('../../../assets/restaurant-food.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.meal h1 {
+  /* Text styles */
+  font-size: 5em;
+
+  /* Margins */
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.product-list {
+  padding: 1rem;
+  color: black;
+  background: #ff8c00;
+  display: block;
+  width: 99%;
+  border-radius: 1rem;
+  text-align: center;
+  justify-self: center;
+  text-decoration: none;
+  font-size: 1.5em;
+}

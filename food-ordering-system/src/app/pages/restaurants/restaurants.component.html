@@ -1,0 +1,27 @@
+@if (!dataLoaded) {
+  <div class="flex h-screen">
+    <div class="m-auto">
+      <span class="loading loading-spinner loading-lg"></span>
+    </div>
+  </div>
+} @else {
+  <div class="flex flex-wrap">
+    @for (restaurant of restaurants; track restaurant) {
+      <a routerLink="/restaurants/{{restaurant.id}}" class="p-2">
+        <div
+          class="card w-96 bg-base-100 shadow-xl image-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-100 duration-300">
+          <figure>
+            <img
+              src="https://kagi.com/proxy/photo-1517248135467-4c7edcad34c4?c=1Jd7jVK2kHMukYe7dcKv7B4jsU8E3x2gLdV9nJmJlI4zVCuquEhjlLhgvIIwB6JcFZxDc3dWsO-LRRu377bdKlI-4DV4wXYTMaTM2fxNZ2R6v7gDd0T68hpefT071oU_OhoiKcMDX2LmUNkzzK257P0-uyHkK-1fEhmqKCTzyFnbEiyuB5Wstzhb5U0SvosqRai0ag8GBEiaBnIptEOvwkWyPUIFFtT3evhqMqYSudIVmndY0t4FcI9ZS3yul4vt"
+              alt="Restaurant"/>
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">{{ restaurant.name }}</h2>
+            <p>{{ restaurant.openTime }}-{{ restaurant.closeTime }}</p>
+            <p class="text-accent">+{{ restaurant.phoneNumber }}</p>
+          </div>
+        </div>
+      </a>
+    }
+  </div>
+}
